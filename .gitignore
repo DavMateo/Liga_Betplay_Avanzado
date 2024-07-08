@@ -51,3 +51,4 @@ nbdist/
 *.iml
 *.ipr
 /ligaBetPlayAvanzado/target/
+/betplay/target/
