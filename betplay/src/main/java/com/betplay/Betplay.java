@@ -4,6 +4,11 @@
 
 package com.betplay;
 
+import com.betplay.infoMgmt.adapter.in.console.TeamController;
+import com.betplay.infoMgmt.application.usecase.CreateTeamUseCase;
+import com.betplay.infoMgmt.domain.service.TeamService;
+import com.betplay.infoMgmt.infrastructure.persistence.TeamRepository;
+
 /**
  *
  * @author mateo
@@ -11,6 +16,10 @@ package com.betplay;
 public class Betplay {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        TeamService teamService = new TeamRepository();
+        CreateTeamUseCase createTeamUseCase = new CreateTeamUseCase(teamService);
+        TeamController consoleAdapter = new TeamController(createTeamUseCase);
+
+        consoleAdapter.start();
     }
 }
